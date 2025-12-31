@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HAPPYNEWYEARGADE2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            background-color: #000;
+            color: #ffcccc;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        /* Heart background - น้อยลงกว่าเดิม */
+        .heart-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff3366;
+            font-size: 20px;
+            opacity: 0;
+            animation: heartFloat 25s infinite linear;
+            text-shadow: 0 0 8px rgba(255, 51, 102, 0.6);
+        }
+        
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+                transform: translateY(90vh) rotate(90deg) scale(0.8);
+            }
+            30% {
+                opacity: 0.8;
+                transform: translateY(70vh) rotate(180deg) scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(50vh) rotate(270deg) scale(0.9);
+            }
+            70% {
+                opacity: 0.5;
+                transform: translateY(30vh) rotate(360deg) scale(0.7);
+            }
+            90% {
+                opacity: 0.3;
+                transform: translateY(10vh) rotate(450deg) scale(0.5);
+            }
+            100% {
+                transform: translateY(-100px) rotate(540deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Stars background - ดาววิ้งๆ ✨ */
+        .stars-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Main content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff6666;
+            text-shadow: 0 0 10px rgba(255, 102, 102, 0.7);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #ff9999;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        
+        .message-box {
+            background-color: rgba(255, 51, 102, 0.1);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 700px;
+            margin: 20px 0;
+            text-align: left;
+            line-height: 1.7;
+            backdrop-filter: blur(5px);
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .message-box p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .wish-input {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .wish-text {
+            font-size: 1.2rem;
+            color: #ffcccc;
+            margin-bottom: 15px;
+        }
+        
+        .wish-input-field {
+            padding: 14px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #ff6666;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .wish-input-field:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.7);
+        }
+        
+        .submit-btn {
+            padding: 14px 40px;
+            font-size: 1.2rem;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .submit-btn:hover, .submit-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+        }
+        
+        /* Effects */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff3366;
+            top: -10px;
+            z-index: 1000;
+        }
+        
+        .jub-gif {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 102, 102, 0.8);
+            border: 4px solid #ff3366;
+            z-index: 2000;
+            animation: gifPop 4s ease forwards;
+        }
+        
+        @keyframes gifPop {
+            0% { 
+                transform: translate(-50%, -50%) scale(0); 
+                opacity: 0; 
+            }
+            15% { 
+                transform: translate(-50%, -50%) scale(1.1); 
+                opacity: 1; 
+            }
+            70% { 
+                transform: translate(-50%, -50%) scale(1); 
+                opacity: 1; 
+            }
+            85% { 
+                transform: translate(-50%, -50%) scale(1.05); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(0); 
+                opacity: 0; 
+            }
+        }
+        
+        /* End message */
+        .end-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 2001;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.8);
+            border: 3px solid #ff6666;
+            display: none;
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        .end-title {
+            font-size: 2.2rem;
+            color: #ff3366;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.7);
+        }
+        
+        .end-btn {
+            padding: 12px 40px;
+            font-size: 1.3rem;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 25px;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .end-btn:hover, .end-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+        }
+        
+        /* Emoji styling */
+        .emoji {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            
+            .message-box {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            .message-box p {
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+            
+            .wish-input-field {
+                padding: 12px 16px;
+                font-size: 1.1rem;
+            }
+            
+            .submit-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .end-message {
+                padding: 25px;
+            }
+            
+            .end-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.7rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .message-box {
+                padding: 15px;
+            }
+            
+            .message-box p {
+                font-size: 0.95rem;
+            }
+            
+            .wish-text {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Prevent text selection */
+        .no-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="no-select">
+    <!-- Background elements -->
+    <div class="heart-background" id="heartBackground"></div>
+    <div class="stars-background" id="starsBackground"></div>
+    
+    <!-- Main content -->
+    <div class="container">
+        <h1 class="title">สวัสดีปีใหม่ 2569<span class="emoji">✨🎉</span></h1>
+        <p class="subtitle">ปีนี้เราก็เป็นเพื่อนกันมา 9 ปีแล้วว!!<span class="emoji">✨😚</span></p>
+        
+        <div class="message-box">
+            <p>ขอบคุณที่อยู่ด้วยกันมานานนนนขนาดนี้ สนิทกันตั้งแต่วันแรกจนถึงวันนี้เลย เลิศจริงๆ อย่าหายไปไหน อย่าเลิกเป็นเพื่อนกับฉันเลย ฉันรักเธอมากๆๆๆๆๆ</p>
+            <p>ปีนี้ขอให้เป็นปีที่ดีเลิศๆๆ ทำอะไรก็ขอให้ผ่านไปได้ด้วยดี ได้ทำสิ่งที่อยากทำ ขอให้มีแต่คนดีๆเพื่อนดีๆเข้าหา ใครไม่ดีก็ให้หายไป(ไม่รวมฉันน้าา) เรียนก็เจออาจารย์ใจดีให้คะแนนง่ายๆ ให้งานน้อยๆหน่อย สอบได้คะแนนเยอะๆ สุขภาพร่างกายแข็งแรงงงง ไม่ปวดหัวปวดหลังบ่อยๆ <span class="emoji">😌🙏</span> ได้กินของอร่อยเยอะะะๆ กินอิ่มนอนหลับดีๆ <span class="emoji">😘</span></p>
+        </div>
+        
+        <div class="wish-input">
+            <p class="wish-text">พิมพ์ <strong>สาธุ67</strong> เพื่อรับคำอวยพรจากเจ๊จีจี้สุดสวย</p>
+            <input type="text" class="wish-input-field" id="wishInput" placeholder="พิมพ์คำตอบที่นี่">
+            <button class="submit-btn" id="submitWish">รับคำอวยพร</button>
+        </div>
+    </div>
+    
+    <!-- End message -->
+    <div class="end-message" id="endMessage">
+        <h2 class="end-title">ขอให้สมหวังดังปรารถนา!</h2>
+        <p class="subtitle">เจ๊จีจี้อวยพรให้ประสบความสำเร็จในทุกเรื่องที่ตั้งใจนะ</p>
+        <button class="end-btn" id="endBtn">ตกลง</button>
+    </div>
+
+    <script>
+        // Initialize variables
+        const heartBackground = document.getElementById('heartBackground');
+        const starsBackground = document.getElementById('starsBackground');
+        const wishInput = document.getElementById('wishInput');
+        const submitWish = document.getElementById('submitWish');
+        const endMessage = document.getElementById('endMessage');
+        const endBtn = document.getElementById('endBtn');
+        
+        // Create hearts - น้อยลงกว่าเดิม (30 ดวง)
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 20 + 15}s`;
+                heart.style.animationDelay = `${Math.random() * 10}s`;
+                const heartSize = Math.random() * 20 + 10;
+                heart.style.fontSize = `${heartSize}px`;
+                
+                // Random heart colors - shades of red
+                const redShades = ['#ff3366', '#ff6666', '#ff9999', '#ffcccc'];
+                heart.style.color = redShades[Math.floor(Math.random() * redShades.length)];
+                
+                heartBackground.appendChild(heart);
+            }, i * 300);
+        }
+        
+        // Create stars - ดาววิ้งๆ ✨
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            // Random star size
+            const starSize = Math.random() * 3 + 1;
+            star.style.width = `${starSize}px`;
+            star.style.height = `${starSize}px`;
+            
+            // Random twinkle animation
+            star.style.animationDuration = `${Math.random() * 4 + 2}s`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            
+            // Random star color (white to yellow)
+            const starColors = ['#ffffff', '#ffffcc', '#ffffee', '#fffacd'];
+            star.style.backgroundColor = starColors[Math.floor(Math.random() * starColors.length)];
+            
+            starsBackground.appendChild(star);
+        }
+        
+        // Handle wish submission
+        submitWish.addEventListener('click', checkWish);
+        wishInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkWish();
+        });
+        
+        function checkWish() {
+            const answer = wishInput.value.toLowerCase().trim();
+            
+            if (answer === 'สาธุ67') {
+                // Show Jub.gif first
+                showJubGif();
+                
+                // Wait for GIF to finish, then show confetti
+                setTimeout(() => {
+                    createConfetti();
+                    setTimeout(() => {
+                        endMessage.style.display = 'block';
+                    }, 1500); // Wait for confetti to start
+                }, 4000); // Wait for GIF to finish (4 seconds)
+            } else {
+                alert('พิมพ์ "สาธุ67" เพื่อรับคำอวยพรรนะเพื่อนรัก!');
+                wishInput.value = '';
+                wishInput.focus();
+            }
+        }
+        
+        endBtn.addEventListener('click', () => {
+            endMessage.style.display = 'none';
+            wishInput.value = '';
+            wishInput.focus();
+        });
+        
+        // Show Jub.gif
+        function showJubGif() {
+            const jubGif = document.createElement('img');
+            jubGif.classList.add('jub-gif');
+            jubGif.src = 'Jub.gif';
+            jubGif.alt = 'เจ๊จีจี้สุดสวย';
+            
+            // ถ้าไม่มีไฟล์ Jub.gif ให้ใช้ fallback
+            jubGif.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif'; // fallback GIF
+                this.style.width = '250px';
+                this.style.height = '250px';
+            };
+            
+            document.body.appendChild(jubGif);
+            
+            // ลบออกหลังจาก 4 วินาที
+            setTimeout(() => {
+                jubGif.remove();
+            }, 4000);
+        }
+        
+        // Create confetti - น้อยลงกว่าเดิม (ไม่กระตุก)
+        function createConfetti() {
+            const colors = ['#ff3366', '#ff6666', '#ff9999', '#ffcccc', '#ffff66', '#ffcc66'];
+            
+            // Create fewer confetti pieces (100 instead of 300)
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Smaller confetti
+                    confetti.style.width = `${Math.random() * 8 + 3}px`;
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Slower animation
+                    const animation = confetti.animate([
+                        { top: '-10px', transform: 'rotate(0deg) scale(1)' },
+                        { top: '100vh', transform: 'rotate(720deg) scale(0.5)' }
+                    ], {
+                        duration: Math.random() * 3000 + 2000,
+                        easing: 'cubic-bezier(0.1, 0.7, 0.9, 0.3)'
+                    });
+                    
+                    // Remove after animation
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, Math.random() * 800); // Less delay between confetti
+            }
+            
+            // Add some heart confetti (fewer)
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = `${Math.random() * 15 + 8}px`;
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = '50%';
+                    confetti.innerHTML = '❤';
+                    confetti.style.fontSize = '12px';
+                    confetti.style.display = 'flex';
+                    confetti.style.alignItems = 'center';
+                    confetti.style.justifyContent = 'center';
+                    document.body.appendChild(confetti);
+                    
+                    const animation = confetti.animate([
+                        { top: '-20px', transform: 'rotate(0deg) scale(1)' },
+                        { top: '100vh', transform: 'rotate(1080deg) scale(0.3)' }
+                    ], {
+                        duration: Math.random() * 4000 + 3000,
+                        easing: 'cubic-bezier(0.1, 0.7, 0.9, 0.3)'
+                    });
+                    
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, Math.random() * 1000);
+            }
+        }
+        
+        // Focus on input when page loads
+        window.addEventListener('load', () => {
+            wishInput.focus();
+        });
+        
+        // Prevent zoom on mobile
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html> <!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HAPPYNEWYEARGADE2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            background-color: #000;
+            color: #ffcccc;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        /* Heart background - น้อยลงกว่าเดิม */
+        .heart-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff3366;
+            font-size: 20px;
+            opacity: 0;
+            animation: heartFloat 25s infinite linear;
+            text-shadow: 0 0 8px rgba(255, 51, 102, 0.6);
+        }
+        
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+                transform: translateY(90vh) rotate(90deg) scale(0.8);
+            }
+            30% {
+                opacity: 0.8;
+                transform: translateY(70vh) rotate(180deg) scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(50vh) rotate(270deg) scale(0.9);
+            }
+            70% {
+                opacity: 0.5;
+                transform: translateY(30vh) rotate(360deg) scale(0.7);
+            }
+            90% {
+                opacity: 0.3;
+                transform: translateY(10vh) rotate(450deg) scale(0.5);
+            }
+            100% {
+                transform: translateY(-100px) rotate(540deg) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Stars background - ดาววิ้งๆ ✨ */
+        .stars-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        /* Main content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff6666;
+            text-shadow: 0 0 10px rgba(255, 102, 102, 0.7);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #ff9999;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        
+        .message-box {
+            background-color: rgba(255, 51, 102, 0.1);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 700px;
+            margin: 20px 0;
+            text-align: left;
+            line-height: 1.7;
+            backdrop-filter: blur(5px);
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .message-box p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .wish-input {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .wish-text {
+            font-size: 1.2rem;
+            color: #ffcccc;
+            margin-bottom: 15px;
+        }
+        
+        .wish-input-field {
+            padding: 14px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #ff6666;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .wish-input-field:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.7);
+        }
+        
+        .submit-btn {
+            padding: 14px 40px;
+            font-size: 1.2rem;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .submit-btn:hover, .submit-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+        }
+        
+        /* Effects */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff3366;
+            top: -10px;
+            z-index: 1000;
+        }
+        
+        .jub-gif {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 102, 102, 0.8);
+            border: 4px solid #ff3366;
+            z-index: 2000;
+            animation: gifPop 4s ease forwards;
+        }
+        
+        @keyframes gifPop {
+            0% { 
+                transform: translate(-50%, -50%) scale(0); 
+                opacity: 0; 
+            }
+            15% { 
+                transform: translate(-50%, -50%) scale(1.1); 
+                opacity: 1; 
+            }
+            70% { 
+                transform: translate(-50%, -50%) scale(1); 
+                opacity: 1; 
+            }
+            85% { 
+                transform: translate(-50%, -50%) scale(1.05); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(0); 
+                opacity: 0; 
+            }
+        }
+        
+        /* End message */
+        .end-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 2001;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.8);
+            border: 3px solid #ff6666;
+            display: none;
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        .end-title {
+            font-size: 2.2rem;
+            color: #ff3366;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.7);
+        }
+        
+        .end-btn {
+            padding: 12px 40px;
+            font-size: 1.3rem;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 25px;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .end-btn:hover, .end-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+        }
+        
+        /* Emoji styling */
+        .emoji {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            
+            .message-box {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            .message-box p {
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+            
+            .wish-input-field {
+                padding: 12px 16px;
+                font-size: 1.1rem;
+            }
+            
+            .submit-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .end-message {
+                padding: 25px;
+            }
+            
+            .end-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.7rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .message-box {
+                padding: 15px;
+            }
+            
+            .message-box p {
+                font-size: 0.95rem;
+            }
+            
+            .wish-text {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Prevent text selection */
+        .no-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="no-select">
+    <!-- Background elements -->
+    <div class="heart-background" id="heartBackground"></div>
+    <div class="stars-background" id="starsBackground"></div>
+    
+    <!-- Main content -->
+    <div class="container">
+        <h1 class="title">สวัสดีปีใหม่ 2569<span class="emoji">✨🎉</span></h1>
+        <p class="subtitle">ปีนี้เราก็เป็นเพื่อนกันมา 9 ปีแล้วว!!<span class="emoji">✨😚</span></p>
+        
+        <div class="message-box">
+            <p>ขอบคุณที่อยู่ด้วยกันมานานนนนขนาดนี้ สนิทกันตั้งแต่วันแรกจนถึงวันนี้เลย เลิศจริงๆ อย่าหายไปไหน อย่าเลิกเป็นเพื่อนกับฉันเลย ฉันรักเธอมากๆๆๆๆๆ</p>
+            <p>ปีนี้ขอให้เป็นปีที่ดีเลิศๆๆ ทำอะไรก็ขอให้ผ่านไปได้ด้วยดี ได้ทำสิ่งที่อยากทำ ขอให้มีแต่คนดีๆเพื่อนดีๆเข้าหา ใครไม่ดีก็ให้หายไป(ไม่รวมฉันน้าา) เรียนก็เจออาจารย์ใจดีให้คะแนนง่ายๆ ให้งานน้อยๆหน่อย สอบได้คะแนนเยอะๆ สุขภาพร่างกายแข็งแรงงงง ไม่ปวดหัวปวดหลังบ่อยๆ <span class="emoji">😌🙏</span> ได้กินของอร่อยเยอะะะๆ กินอิ่มนอนหลับดีๆ <span class="emoji">😘</span></p>
+        </div>
+        
+        <div class="wish-input">
+            <p class="wish-text">พิมพ์ <strong>สาธุ67</strong> เพื่อรับคำอวยพรจากเจ๊จีจี้สุดสวย</p>
+            <input type="text" class="wish-input-field" id="wishInput" placeholder="พิมพ์คำตอบที่นี่">
+            <button class="submit-btn" id="submitWish">รับคำอวยพร</button>
+        </div>
+    </div>
+    
+    <!-- End message -->
+    <div class="end-message" id="endMessage">
+        <h2 class="end-title">ขอให้สมหวังดังปรารถนา!</h2>
+        <p class="subtitle">เจ๊จีจี้อวยพรให้ประสบความสำเร็จในทุกเรื่องที่ตั้งใจนะ</p>
+        <button class="end-btn" id="endBtn">ตกลง</button>
+    </div>
+
+    <script>
+        // Initialize variables
+        const heartBackground = document.getElementById('heartBackground');
+        const starsBackground = document.getElementById('starsBackground');
+        const wishInput = document.getElementById('wishInput');
+        const submitWish = document.getElementById('submitWish');
+        const endMessage = document.getElementById('endMessage');
+        const endBtn = document.getElementById('endBtn');
+        
+        // Create hearts - น้อยลงกว่าเดิม (30 ดวง)
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 20 + 15}s`;
+                heart.style.animationDelay = `${Math.random() * 10}s`;
+                const heartSize = Math.random() * 20 + 10;
+                heart.style.fontSize = `${heartSize}px`;
+                
+                // Random heart colors - shades of red
+                const redShades = ['#ff3366', '#ff6666', '#ff9999', '#ffcccc'];
+                heart.style.color = redShades[Math.floor(Math.random() * redShades.length)];
+                
+                heartBackground.appendChild(heart);
+            }, i * 300);
+        }
+        
+        // Create stars - ดาววิ้งๆ ✨
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            // Random star size
+            const starSize = Math.random() * 3 + 1;
+            star.style.width = `${starSize}px`;
+            star.style.height = `${starSize}px`;
+            
+            // Random twinkle animation
+            star.style.animationDuration = `${Math.random() * 4 + 2}s`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            
+            // Random star color (white to yellow)
+            const starColors = ['#ffffff', '#ffffcc', '#ffffee', '#fffacd'];
+            star.style.backgroundColor = starColors[Math.floor(Math.random() * starColors.length)];
+            
+            starsBackground.appendChild(star);
+        }
+        
+        // Handle wish submission
+        submitWish.addEventListener('click', checkWish);
+        wishInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkWish();
+        });
+        
+        function checkWish() {
+            const answer = wishInput.value.toLowerCase().trim();
+            
+            if (answer === 'สาธุ67') {
+                // Show Jub.gif first
+                showJubGif();
+                
+                // Wait for GIF to finish, then show confetti
+                setTimeout(() => {
+                    createConfetti();
+                    setTimeout(() => {
+                        endMessage.style.display = 'block';
+                    }, 1500); // Wait for confetti to start
+                }, 4000); // Wait for GIF to finish (4 seconds)
+            } else {
+                alert('พิมพ์ "สาธุ67" เพื่อรับคำอวยพรรนะเพื่อนรัก!');
+                wishInput.value = '';
+                wishInput.focus();
+            }
+        }
+        
+        endBtn.addEventListener('click', () => {
+            endMessage.style.display = 'none';
+            wishInput.value = '';
+            wishInput.focus();
+        });
+        
+        // Show Jub.gif
+        function showJubGif() {
+            const jubGif = document.createElement('img');
+            jubGif.classList.add('jub-gif');
+            jubGif.src = 'Jub.gif';
+            jubGif.alt = 'เจ๊จีจี้สุดสวย';
+            
+            // ถ้าไม่มีไฟล์ Jub.gif ให้ใช้ fallback
+            jubGif.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif'; // fallback GIF
+                this.style.width = '250px';
+                this.style.height = '250px';
+            };
+            
+            document.body.appendChild(jubGif);
+            
+            // ลบออกหลังจาก 4 วินาที
+            setTimeout(() => {
+                jubGif.remove();
+            }, 4000);
+        }
+        
+        // Create confetti - น้อยลงกว่าเดิม (ไม่กระตุก)
+        function createConfetti() {
+            const colors = ['#ff3366', '#ff6666', '#ff9999', '#ffcccc', '#ffff66', '#ffcc66'];
+            
+            // Create fewer confetti pieces (100 instead of 300)
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Smaller confetti
+                    confetti.style.width = `${Math.random() * 8 + 3}px`;
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Slower animation
+                    const animation = confetti.animate([
+                        { top: '-10px', transform: 'rotate(0deg) scale(1)' },
+                        { top: '100vh', transform: 'rotate(720deg) scale(0.5)' }
+                    ], {
+                        duration: Math.random() * 3000 + 2000,
+                        easing: 'cubic-bezier(0.1, 0.7, 0.9, 0.3)'
+                    });
+                    
+                    // Remove after animation
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, Math.random() * 800); // Less delay between confetti
+            }
+            
+            // Add some heart confetti (fewer)
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = `${Math.random() * 15 + 8}px`;
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = '50%';
+                    confetti.innerHTML = '❤';
+                    confetti.style.fontSize = '12px';
+                    confetti.style.display = 'flex';
+                    confetti.style.alignItems = 'center';
+                    confetti.style.justifyContent = 'center';
+                    document.body.appendChild(confetti);
+                    
+                    const animation = confetti.animate([
+                        { top: '-20px', transform: 'rotate(0deg) scale(1)' },
+                        { top: '100vh', transform: 'rotate(1080deg) scale(0.3)' }
+                    ], {
+                        duration: Math.random() * 4000 + 3000,
+                        easing: 'cubic-bezier(0.1, 0.7, 0.9, 0.3)'
+                    });
+                    
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, Math.random() * 1000);
+            }
+        }
+        
+        // Focus on input when page loads
+        window.addEventListener('load', () => {
+            wishInput.focus();
+        });
+        
+        // Prevent zoom on mobile
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>            line-height: 1.3;
+/html>            line-height: 1.3;e {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #ff9999;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+        
+        .message-box {
+            background-color: rgba(255, 51, 102, 0.1);
+            border: 1px solid rgba(255, 51, 102, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 700px;
+            margin: 20px 0;
+            text-align: left;
+            line-height: 1.7;
+            backdrop-filter: blur(5px);
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .message-box p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .wish-input {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 500px;
+        }
+        
+        .wish-text {
+            font-size: 1.2rem;
+            color: #ffcccc;
+            margin-bottom: 15px;
+        }
+        
+        .wish-input-field {
+            padding: 14px 20px;
+            font-size: 1.2rem;
+            border: 2px solid #ff6666;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .wish-input-field:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 102, 102, 0.7);
+        }
+        
+        .submit-btn {
+            padding: 14px 40px;
+            font-size: 1.2rem;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .submit-btn:hover, .submit-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+        }
+        
+        /* Effects */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff3366;
+            top: -10px;
+            z-index: 1000;
+        }
+        
+        .jub-gif {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 102, 102, 0.8);
+            border: 4px solid #ff3366;
+            z-index: 2000;
+            animation: gifPop 4s ease forwards;
+        }
+        
+        @keyframes gifPop {
+            0% { 
+                transform: translate(-50%, -50%) scale(0); 
+                opacity: 0; 
+            }
+            15% { 
+                transform: translate(-50%, -50%) scale(1.1); 
+                opacity: 1; 
+            }
+            70% { 
+                transform: translate(-50%, -50%) scale(1); 
+                opacity: 1; 
+            }
+            85% { 
+                transform: translate(-50%, -50%) scale(1.05); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(0); 
+                opacity: 0; 
+            }
+        }
+        
+        /* End message */
+        .end-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 2001;
+            box-shadow: 0 0 40px rgba(255, 51, 102, 0.8);
+            border: 3px solid #ff6666;
+            display: none;
+            backdrop-filter: blur(10px);
+            width: 90%;
+            max-width: 400px;
+        }
+        
+        .end-title {
+            font-size: 2.2rem;
+            color: #ff3366;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 51, 102, 0.7);
+        }
+        
+        .end-btn {
+            padding: 12px 40px;
+            font-size: 1.3rem;
+            background-color: #ff3366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 25px;
+            font-family: 'IBM Plex Sans Thai', sans-serif;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .end-btn:hover, .end-btn:active {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+        }
+        
+        /* Emoji styling */
+        .emoji {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            
+            .message-box {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            .message-box p {
+                font-size: 1rem;
+                margin-bottom: 12px;
+            }
+            
+            .wish-input-field {
+                padding: 12px 16px;
+                font-size: 1.1rem;
+            }
+            
+            .submit-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .end-message {
+                padding: 25px;
+            }
+            
+            .end-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .title {
+                font-size: 1.7rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .message-box {
+                padding: 15px;
+            }
+            
+            .message-box p {
+                font-size: 0.95rem;
+            }
+            
+            .wish-text {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Prevent text selection */
+        .no-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body class="no-select">
+    <!-- Background elements -->
+    <div class="heart-background" id="heartBackground"></div>
+    <div class="stars-background" id="starsBackground"></div>
+    
+    <!-- Main content -->
+    <div class="container">
+        <h1 class="title">สวัสดีปีใหม่ 2569<span class="emoji">✨🎉</span></h1>
+        <p class="subtitle">ปีนี้เราก็เป็นเพื่อนกันมา 9 ปีแล้วว!!<span class="emoji">✨😚</span></p>
+        
+        <div class="message-box">
+            <p>ขอบคุณที่อยู่ด้วยกันมานานนนนขนาดนี้ สนิทกันตั้งแต่วันแรกจนถึงวันนี้เลย เลิศจริงๆ อย่าหายไปไหน อย่าเลิกเป็นเพื่อนกับฉันเลย ฉันรักเธอมากๆๆๆๆๆ</p>
+            <p>ปีนี้ขอให้เป็นปีที่ดีเลิศๆๆ ทำอะไรก็ขอให้ผ่านไปได้ด้วยดี ได้ทำสิ่งที่อยากทำ ขอให้มีแต่คนดีๆเพื่อนดีๆเข้าหา ใครไม่ดีก็ให้หายไป(ไม่รวมฉันน้าา) เรียนก็เจออาจารย์ใจดีให้คะแนนง่ายๆ ให้งานน้อยๆหน่อย สอบได้คะแนนเยอะๆ สุขภาพร่างกายแข็งแรงงงง ไม่ปวดหัวปวดหลังบ่อยๆ <span class="emoji">😌🙏</span> ได้กินของอร่อยเยอะะะๆ กินอิ่มนอนหลับดีๆ <span class="emoji">😘</span></p>
+        </div>
+        
+        <div class="wish-input">
+            <p class="wish-text">พิมพ์ <strong>สาธุ67</strong> เพื่อรับคำอวยพรจากเจ๊จีจี้สุดสวย</p>
+            <input type="text" class="wish-input-field" id="wishInput" placeholder="พิมพ์คำตอบที่นี่">
+            <button class="submit-btn" id="submitWish">รับคำอวยพร</button>
+        </div>
+    </div>
+    
+    <!-- End message -->
+    <div class="end-message" id="endMessage">
+        <h2 class="end-title">ขอให้สมหวังดังปรารถนา!</h2>
+        <p class="subtitle">เจ๊จีจี้อวยพรให้ประสบความสำเร็จในทุกเรื่องที่ตั้งใจนะ</p>
+        <button class="end-btn" id="endBtn">ตกลง</button>
+    </div>
+
+    <script>
+        // Initialize variables
+        const heartBackground = document.getElementById('heartBackground');
+        const starsBackground = document.getElementById('starsBackground');
+        const wishInput = document.getElementById('wishInput');
+        const submitWish = document.getElementById('submitWish');
+        const endMessage = document.getElementById('endMessage');
+        const endBtn = document.getElementById('endBtn');
+        
+        // Create hearts - น้อยลงกว่าเดิม (30 ดวง)
+        for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDuration = `${Math.random() * 20 + 15}s`;
+                heart.style.animationDelay = `${Math.random() * 10}s`;
+                const heartSize = Math.random() * 20 + 10;
+                heart.style.fontSize = `${heartSize}px`;
+                
+                // Random heart colors - shades of red
+                const redShades = ['#ff3366', '#ff6666', '#ff9999', '#ffcccc'];
+                heart.style.color = redShades[Math.floor(Math.random() * redShades.length)];
+                
+                heartBackground.appendChild(heart);
+            }, i * 300);
+        }
+        
+        // Create stars - ดาววิ้งๆ ✨
+        for (let i = 0; i < 80; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            
+            // Random star size
+            const starSize = Math.random() * 3 + 1;
+            star.style.width = `${starSize}px`;
+            star.style.height = `${starSize}px`;
+            
+            // Random twinkle animation
+            star.style.animationDuration = `${Math.random() * 4 + 2}s`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            
+            // Random star color (white to yellow)
+            const starColors = ['#ffffff', '#ffffcc', '#ffffee', '#fffacd'];
+            star.style.backgroundColor = starColors[Math.floor(Math.random() * starColors.length)];
+            
+            starsBackground.appendChild(star);
+        }
+        
+        // Handle wish submission
+        submitWish.addEventListener('click', checkWish);
+        wishInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkWish();
+        });
+        
+        function checkWish() {
+            const answer = wishInput.value.toLowerCase().trim();
+            
+            if (answer === 'สาธุ67') {
+                // Show Jub.gif first
+                showJubGif();
+                
+                // Wait for GIF to finish, then show confetti
+                setTimeout(() => {
+                    createConfetti();
+                    setTimeout(() => {
+                        endMessage.style.display = 'block';
+                    }, 1500); // Wait for confetti to start
+                }, 4000); // Wait for GIF to finish (4 seconds)
+            } else {
+                alert('พิมพ์ "สาธุ67" เพื่อรับคำอวยพรรนะเพื่อนรัก!');
+                wishInput.value = '';
+                wishInput.focus();
+            }
+        }
+        
+        endBtn.addEventListener('click', () => {
+            endMessage.style.display = 'none';
+            wishInput.value = '';
+            wishInput.focus();
+        });
+        
+        // Show Jub.gif
+        function showJubGif() {
+            const jubGif = document.createElement('img');
+            jubGif.classList.add('jub-gif');
+            jubGif.src = 'Jub.gif';
+            jubGif.alt = 'เจ๊จีจี้สุดสวย';
+            
+            // ถ้าไม่มีไฟล์ Jub.gif ให้ใช้ fallback
+            jubGif.onerror = function() {
+                this.onerror = null;
+                this.src = 'https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif'; // fallback GIF
+                this.style.width = '250px';
+                this.style.height = '250px';
+            };
+            
+            document.body.appendChild(jubGif);
+            
+            // ลบออกหลังจาก 4 วินาที
+            setTimeout(() => {
+                jubGif.remove();
+            }, 4000);
+        }
+        
+        // Create confetti - น้อยลงกว่าเดิม (ไม่กระตุก)
+        function createConfetti() {
+            const colors = ['#ff3366', '#ff6666', '#ff9999', '#ffcccc', '#ffff66', '#ffcc66'];
+            
+            // Create fewer confetti pieces (100 instead of 300)
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Smaller confetti
+                    confetti.style.width = `${Math.random() * 8 + 3}px`;
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Slower animation
+                    const animation = confetti.animate([
+                        { top: '-10px', transform: 'rotate(0deg) scale(1)' },
+                        { top: '100vh', transform: 'rotate(720deg) scale(0.5)' }
+                    ], {
+                        duration: Math.random() * 3000 + 2000,
+                        easing: 'cubic-bezier(0.1, 0.7, 0.9, 0.3)'
+                    });
+                    
+                    // Remove after animation
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, Math.random() * 800); // Less delay between confetti
+            }
+            
+            // Add some heart confetti (fewer)
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = `${Math.random() * 15 + 8}px`;
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = '50%';
+                    confetti.innerHTML = '❤';
+                    confetti.style.fontSize = '12px';
+                    confetti.style.display = 'flex';
+                    confetti.style.alignItems = 'center';
+                    confetti.style.justifyContent = 'center';
+                    document.body.appendChild(confetti);
+                    
+                    const animation = confetti.animate([
+                        { top: '-20px', transform: 'rotate(0deg) scale(1)' },
+                        { top: '100vh', transform: 'rotate(1080deg) scale(0.3)' }
+                    ], {
+                        duration: Math.random() * 4000 + 3000,
+                        easing: 'cubic-bezier(0.1, 0.7, 0.9, 0.3)'
+                    });
+                    
+                    animation.onfinish = () => {
+                        confetti.remove();
+                    };
+                }, Math.random() * 1000);
+            }
+        }
+        
+        // Focus on input when page loads
+        window.addEventListener('load', () => {
+            wishInput.focus();
+        });
+        
+        // Prevent zoom on mobile
+        document.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
+</body>
+</html>
